@@ -7,8 +7,4 @@ function defineStuff(e){
 	if(!d1){alert("d1 needed");}
 	if(!d2){alert("d2 needed");}
 	console.log(e);
-
-	
-
-
 }
