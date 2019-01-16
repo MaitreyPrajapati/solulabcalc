@@ -50,9 +50,13 @@ pow.addEventListener('click',operations);
 
 //Single operand Operation buttons
 const sqr = document.getElementById('sqr');
+sqr.addEventListener('click',square);
 const cube = document.getElementById('cube');
+cube.addEventListener('click',cuber);
 const sqrt = document.getElementById('sqrt');
+sqrt.addEventListener('click',squareRoot);
 const factorial = document.getElementById('factorial');
+factorial.addEventListener('click',facto)
 
 //Equal button
 const equal = document.getElementById('equal');
@@ -86,7 +90,7 @@ function letteradd(e){
 	}
 	//if the length reaches 10 digits
 	else if((display.innerHTML).length>=10){
-		alert("10 digits only");
+		jumboalert();
 	}
 	//normal
 	else{
@@ -106,9 +110,6 @@ function operations(e){
 		digit1 = display.innerHTML;
 		display.innerHTML = 0;	
 	}
-
-	
-
 }
 
 //Two operannd operations performed
@@ -124,40 +125,117 @@ function equalsto(){
 	switch(operator){
 		case 'add':
 			answer = digit1+digit2;
-			display.innerHTML= answer;
-			console.log(answer);
+			if(checklength(answer)){
+				display.innerHTML=answer;
+			}
+			else{
+				jumboalert();
+			}
 			break;	
 		
 
 		case 'sub':
 			answer = digit1-digit2;
-			display.innerHTML= answer;
+			if(checklength(answer)){
+				display.innerHTML=answer;
+			}
+			else{
+				jumboalert();
+			}
 			break;
 		
 
 
 		case 'mul':
 			answer = digit1*digit2;
-			display.innerHTML= answer;
+			if(checklength(answer)){
+				display.innerHTML=answer;
+			}
+			else{
+				jumboalert();
+			}
 			break;
 		
 
 		case 'div':
 			answer = digit1/digit2;
-			display.innerHTML=answer;
+			if(checklength(answer)){
+				display.innerHTML=answer;
+			}
+			else{
+				jumboalert();
+			}
 			break;
 		
 
 		case 'pow':
 			answer = Math.pow(digit1,digit2);
-			display.innerHTML=answer;
+			if(checklength(answer)){
+				display.innerHTML=answer;
+			}
+			else{
+				jumboalert();
+			}
 			break;
 		
 	}
 	
 }
 
-// Clearing all the data when AllClear(AC) button is clicked
+
+
+//Square function -- Single Operand Function
+function square(e){
+	digit1 = display.innerHTML;
+	answer = Math.pow(digit1,2);
+	if(checklength(answer)){
+		display.innerHTML=answer;
+	}
+	else{
+		jumboalert();
+	}
+}
+
+//Cube function -- Single Operand Function 
+function cuber(e){
+	digit1 = display.innerHTML;
+	answer = Math.pow(digit1,3);
+	if(checklength(answer)){
+		display.innerHTML = answer;
+	}
+	else{
+			jumboalert();	
+		}
+}
+
+//SquareRoot function -- Single Operand Function
+function squareRoot(e){
+	digit1= display.innerHTML;
+	answer = Math.pow(digit1,0.5);
+	if(answer.toString().length>9){
+		answer = answer.toFixed(9);
+	}
+	display.innerHTML=answer;
+}
+
+// Factorial function -- Single Operand Function
+function facto(e){
+	digit1 = display.innerHTML;
+	let val=1;
+    for (let i = 2; i <= digit1; i++){
+        val*=i;
+    }
+    if(checklength(val)){
+    	answer = val;
+    	display.innerHTML = answer;
+    }
+    else{
+    	jumboalert();
+    }   
+}
+
+
+// Clearing all the data when AllClear(AC) button is clicked 
 function allclear(e){
 	digit1 =0;
 	digit2 =0;
@@ -166,9 +244,26 @@ function allclear(e){
 	display.innerHTML=0;
 }
 
+// Single clear(C) function -- clears current display
 function oneclear(e){
 	display.innerHTML = 0;
 }
+
+// Checks whether the length is more than 10
+function checklength(e){
+	if(e.toString().length>10){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+// Alerts length is more than 10 digits
+function jumboalert(){
+	alert("Don't push me!! 10 digit limit only!!")
+}
+
 
 
 
