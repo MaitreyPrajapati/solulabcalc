@@ -31,3 +31,8 @@
 button:hover{
     background-color: white;
 }
+
+.bgb2{
+	background-color: black;
+	visibility: 'hidden'
+}

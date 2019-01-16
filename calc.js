@@ -67,16 +67,24 @@ const AC = document.getElementById('AllClear');
 AC.addEventListener('click',allclear);
 const cleared = document.getElementById('clear');
 cleared.addEventListener('click',oneclear)
-const del = document.getElementById('delete');
+
+//History button
+const his = document.getElementById('history');
+his.addEventListener('click',history);
+
 
 //Floating point dot
-const dot = document.getElementById('dot');
+const dot = document.getElementById('.');
+dot.addEventListener('click',letteradd);
 
 //Display
 let display = document.getElementById('display');
 
 //Answer
 let answer;
+
+//let table2= document.getElementById('table2');
+
 
 //Display of letters and their conditions
 function letteradd(e){
@@ -128,6 +136,10 @@ function equalsto(){
 			if(checklength(answer)){
 				display.innerHTML=answer;
 			}
+			else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
+			}
 			else{
 				jumboalert();
 			}
@@ -138,6 +150,10 @@ function equalsto(){
 			answer = digit1-digit2;
 			if(checklength(answer)){
 				display.innerHTML=answer;
+			}
+			else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
 			}
 			else{
 				jumboalert();
@@ -151,6 +167,10 @@ function equalsto(){
 			if(checklength(answer)){
 				display.innerHTML=answer;
 			}
+			else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
+			}
 			else{
 				jumboalert();
 			}
@@ -162,6 +182,11 @@ function equalsto(){
 			if(checklength(answer)){
 				display.innerHTML=answer;
 			}
+			else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				console.log('hell');
+				display.innerHTML =answer;
+			}
 			else{
 				jumboalert();
 			}
@@ -172,6 +197,10 @@ function equalsto(){
 			answer = Math.pow(digit1,digit2);
 			if(checklength(answer)){
 				display.innerHTML=answer;
+			}
+			else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
 			}
 			else{
 				jumboalert();
@@ -203,6 +232,10 @@ function cuber(e){
 	if(checklength(answer)){
 		display.innerHTML = answer;
 	}
+	else if(answer%1!==1){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
+			}
 	else{
 			jumboalert();	
 		}
@@ -222,6 +255,10 @@ function squareRoot(e){
 function facto(e){
 	digit1 = display.innerHTML;
 	let val=1;
+	if(digit1%1!==1){
+		alert("Floating value ain't no good for this operation, go with an integer!!");
+		return false;
+	}
     for (let i = 2; i <= digit1; i++){
         val*=i;
     }
@@ -248,6 +285,21 @@ function allclear(e){
 function oneclear(e){
 	display.innerHTML = 0;
 }
+
+//This function is used to check the history of last 10 operations
+function history(){
+
+	console.log('history here');
+	let contain = document.getElementById('main-container');
+	if(contain.style.justifyContent == 'left'){
+		contain.style.justifyContent = 'center';
+	}
+	else{
+		contain.style.justifyContent='left';
+		
+	}
+
+	}
 
 // Checks whether the length is more than 10
 function checklength(e){
