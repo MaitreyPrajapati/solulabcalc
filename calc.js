@@ -86,11 +86,14 @@ table2his.addEventListener('click',history);
 //Counter that will be used to know if the person is in calculator or history mode
 let counter =0;
  
- //array to store the operations
-
+//array to store the operations
 let arr = []
 
+//history table
 let histable = document.getElementById('histable');
+
+//Variable used to get second negative value
+let secondop;
 
 //Display of letters and their conditions
 function letteradd(e){
@@ -112,24 +115,41 @@ function letteradd(e){
 	}
 		
 }
+
 //deciding operator. Also if answer exists and another operator is clicked, answer becomes digit1 for the operation.
 function operations(e){
 	let op = e.path[0].id;
+	secondop = operator;
 	operator=op;
-	if(answer){
+	if(op == 'sub' && display.innerHTML==0){
+		display.innerHTML = '-';	
+		operator = secondop;
+	}
+	else if(answer){
 		digit1 =answer;
 		display.innerHTML=0;
 	}
 	else if(display.innerHTML!=0){
-		digit1 = display.innerHTML;
+		if(display.innerHTML.includes('-')){
+			digit1=0+parseInt(display.innerHTML);
+		}
+		else{
+			digit1 = display.innerHTML;
+		}
 		display.innerHTML = 0;	
 	}
+	
 }
 
 //Two operannd operations performed
 function equalsto(){
 	console.log("digit1",digit1);
+	if(display.innerHTML.includes('-')){
+		digit2 = 0+parseInt(display.innerHTML);
+	}
+	else{
 	digit2 = display.innerHTML;
+	}
 	console.log("digit2: ",digit2);
 	digit1= parseInt(digit1);
 	digit2= parseInt(digit2);
@@ -139,7 +159,10 @@ function equalsto(){
 	switch(operator){
 		case 'add':
 			answer = digit1+digit2;
-			if(checklength(answer)){
+			if(answer.toString.includes('e')){
+				jumboalert();
+			}
+			else if(checklength(answer)){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
@@ -174,7 +197,10 @@ function equalsto(){
 
 		case 'mul':
 			answer = digit1*digit2;
-			if(checklength(answer)){
+			if(answer.toString().includes('e')){
+				jumboalert();
+			}
+			else if(checklength(answer)){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
@@ -191,7 +217,10 @@ function equalsto(){
 
 		case 'div':
 			answer = digit1/digit2;
-			if(checklength(answer)){
+			if(answer.toString.includes('e')){
+				jumboalert();
+			}
+			else if(checklength(answer)){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
@@ -209,7 +238,14 @@ function equalsto(){
 
 		case 'pow':
 			answer = Math.pow(digit1,digit2);
-			if(checklength(answer)){
+			console.log('answer',typeof(answer));
+			if(answer.toString().includes('e')){
+				jumboalert();
+			}
+			else if(answer.toString().includes('e')){
+				jumboalert();
+			}
+			else if(checklength(answer)){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
@@ -227,12 +263,11 @@ function equalsto(){
 	
 }
 
-
-
 //Square function -- Single Operand Function
 function square(e){
 	digit1 = display.innerHTML;
 	answer = Math.pow(digit1,2);
+	digit1=answer;
 	if(checklength(answer)){
 		display.innerHTML=answer;
 		singlehistoryappend(digit1,'Square');
@@ -251,7 +286,11 @@ function square(e){
 function cuber(e){
 	digit1 = display.innerHTML;
 	answer = Math.pow(digit1,3);
-	if(checklength(answer)){
+	digit1=answer;
+	if(answer.toString().includes('e')){
+		jumboalert();
+	}
+	else if(checklength(answer)){
 		display.innerHTML = answer;
 		singlehistoryappend(digit1,'Cube');
 	}
@@ -269,9 +308,15 @@ function cuber(e){
 function squareRoot(e){
 	digit1= display.innerHTML;
 	answer = Math.pow(digit1,0.5);
+	digit1=answer;
 	if(answer.toString().length>9){
 		answer = answer.toFixed(9);
 		singlehistoryappend(digit1,'SquareRoot');
+	}
+	if(answer.toString().includes('NaN')){
+		alert("Not A Number");
+		display.innerHTML= 0;
+		return false;
 	}
 	display.innerHTML=answer;
 }
@@ -280,18 +325,31 @@ function squareRoot(e){
 function facto(e){
 	digit1 = display.innerHTML;
 	let val=1;
+	if(digit1==0){
+		answer =1;
+		display.innerHTML=1;;
+		return true;
+	}
 	if(typeof(digit1)=='Floating'){
 		alert("Floating value ain't no good for this operation, go with an integer!!");
 		return false;
+	}	
+	else if(!Number(digit1)){
+		alert("Operators doesn't factorial");
+		return false;
 	}
-	else if(digit1<1){
-		alert("No value less than 1 please !")
+	else if(digit1<0){
+		alert("No value less than 0 please !")
 	}
+
+	
+
     for (let i = 2; i <= digit1; i++){
         val*=i;
     }
     if(checklength(val)){
     	answer = val;
+    	digit1=answer;
     	display.innerHTML = answer;
     	singlehistoryappend(digit1,'Factorial');
     }
