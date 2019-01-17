@@ -1,14 +1,10 @@
-/*const form = document.getElementById('form').addEventListener('submit', defineStuff);
-let op;
-function defineStuff(e){
-	e.preventDefault();
-	const d1 = document.getElementById('dig1').value;
-	const d2 = document.getElementById('dig2').value;
-	if(!d1){alert("d1 needed");}
-	if(!d2){alert("d2 needed");}
-	console.log(e);
-}
+/*
+File-type: Javascript
+This javascript file contains functionalities that are used in file calc.html
+This file makes use of file calc.css, calc.html and folder images.
+This file was created by Maitrey Prajapati(maitrey@solulab.co) while working at Solulab Inc for a project.
 */
+
 let digit1,digit2;
 let operator;
 
@@ -147,7 +143,7 @@ function equalsto(){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
-			else if(answer%1!==1){
+			else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
 				doublehistoryappend(digit1,digit2,operator);
@@ -164,7 +160,7 @@ function equalsto(){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
-			else if(answer%1!==1){
+			else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
 				doublehistoryappend(digit1,digit2,operator);
@@ -182,7 +178,7 @@ function equalsto(){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
-			else if(answer%1!==1){
+			else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
 				doublehistoryappend(digit1,digit2,operator);
@@ -199,7 +195,7 @@ function equalsto(){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
-			else if(answer%1!==1){
+			else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				console.log('hell');
 				display.innerHTML =answer;
@@ -217,7 +213,7 @@ function equalsto(){
 				display.innerHTML=answer;
 				doublehistoryappend(digit1,digit2,operator);
 			}
-			else if(answer%1!==1){
+			else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
 				doublehistoryappend(digit1,digit2,operator);
@@ -241,6 +237,11 @@ function square(e){
 		display.innerHTML=answer;
 		singlehistoryappend(digit1,'Square');
 	}
+	else if(answer.toString().includes('.')){
+				answer = answer.toFixed(9);
+				display.innerHTML =answer;
+				singlehistoryappend(digit1,'Cube');
+			}
 	else{
 		jumboalert();
 	}
@@ -254,7 +255,7 @@ function cuber(e){
 		display.innerHTML = answer;
 		singlehistoryappend(digit1,'Cube');
 	}
-	else if(answer%1!==1){
+	else if(answer.toString().includes('.')){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
 				singlehistoryappend(digit1,'Cube');
@@ -322,12 +323,15 @@ function history(){
 	if(counter == 1){
 		contain.style.visibility = 'visible';
 		contain2.style.visibility = 'hidden';
+		document.getElementById('historyhoarding').style.visibility = 'hidden';
+
 		counter =0;
 	}
 	else{
 		counter = 1;
 		contain.style.visibility = 'hidden';
 		showhistory();
+		document.getElementById('historyhoarding').style.visibility = 'visible';
 		contain2.style.visibility='visible';
 	}
 
@@ -358,60 +362,8 @@ function singlehistoryappend(d1,op){
 	if(arr.length>10){
 		arr.pop();
 			}
-	
-	
-/*	if(histable.rows.length>10){
-		histable.rows.deleteRow(histable.rows.length);
-		let rc=10;
-		let lastrow = histable.insertRow(10);	
-		lastrow = histable.rows[9];
-		while(rc>2){
-			histable.rows[rc]=histable.rows[rc-1];
-		}
-		let newrow = histable.rows[1];
-			console.log(newrow);
-			newrow.cells[0].innerHTML=histable.rows.length-1;
-			newrow.cells[1].innerHTML= d1;
-			newrow.cells[2].innerHTML=op;
-			newrow.cells[3].innerHTML="";
-			newrow.cells[4].innerHTML=answer;
-	
-		}
-
-	else if(histable.rows.length == 1){
-			let newrow = histable.insertRow(1);
-			console.log(newrow);
-			newrow.insertCell(0).innerHTML=histable.rows.length-1;
-			newrow.insertCell(1).innerHTML= d1;
-			newrow.insertCell(2).innerHTML=op;
-			newrow.insertCell(3).innerHTML="";
-			newrow.insertCell(4).innerHTML=answer;
-	
-		}
-	else{
-		let newrow = histable.insertRow(histable.rows.length);
-							
-			
-			for(let rc=histable.rows.length;rc>=2;rc--){
-				histable.rows[rc]=histable.rows[rc-1];
-
-			}
-			newrow = histable.rows[1];
-			newrow.cells[0].innerHTML=histable.rows.length-1;
-			newrow.cells[1].innerHTML= d1;
-			newrow.cells[2].innerHTML=op;
-			newrow.cells[3].innerHTML="";
-			newrow.cells[4].innerHTML=answer;
-
-		}*/
-
+		
 	}
-
-
-	
-
-	
-
 
 
 // Multiple operand history

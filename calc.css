@@ -1,3 +1,13 @@
+/*
+File-type: Cascading Stylesheet
+This javascript file contains functionalities that are used in file calc.html
+This file makes use of file calc.html
+This file was created by Maitrey Prajapati(maitrey@solulab.co) while working at Solulab Inc for a project.
+*/
+
+
+
+
 .btn-circle.btn-xl {
     width: 50px;
     height: 50px;
@@ -33,10 +43,10 @@ button:hover{
 
 .bgb2{
 	background-color: black;
-	visibility: 'hidden'
+	visibility: 'hidden';
 }
 
 .num{
-	color: #CFB53B	;
+	color: #CFB53B;
 	border-color: gold;
 }

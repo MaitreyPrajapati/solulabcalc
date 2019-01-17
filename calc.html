@@ -1,231 +1,235 @@
 <!DOCTYPE html>
 <head>
-	<!-- Required meta tags -->
-	    <meta charset="utf-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	    
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<!-- Bootstrap CSS -->
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	    
-	 <!-- custom JS & CSS -->   
-		<script type="text/javascript" src="calc.js" defer></script>
-		<link rel="stylesheet" type="text/css" href="calc.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<!-- custom JS & CSS -->   
+	<script type="text/javascript" src="calc.js" defer></script>
+	<link rel="stylesheet" type="text/css" href="calc.css">
+
 	<!-- Digital Fonts CSS -->
-		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 
 </head>
 
 <body class="bgb container" background="images/bun.jpeg">
 
+	<div>
+		<h2  class='all-center'style="color: #CFB53B; visibility: hidden;" id="historyhoarding">History</h2>
+		<div class=" all-center" id="main-container"  >	
+			<div class="align-items-center" style="border-width: 5px;border-color: #CFB53B;border-style: solid; border-radius: 25px; position: relative;" id="sub1">
+				<div style="padding: 5px 5px 5px 5px;">
+					<table class="table table-borderless table-sm bgb" background='images/bun.jpeg' style=" align-items: center;" id="table1">
+						<thead style="column-span: 4;">
+							<h2 style="border-bottom: solid; border-width: 5px; font-size: xx-large; border-color: #CFB53B; color: white; text-align: right; font-family: 'Orbitron', sans-serif; font-size: 27px" id="display">0
+							</h2>
+						</thead>
+						<tbody>
+							<tr >
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="font-size: 20px; padding-left: 10px;" id="AllClear">AC</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="clear">C</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="factorial">!</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="history">H</button>
+								</td>
+							</tr>
 
-		 
-		<!--<form action="#" method="POST" id="form" style="color: red">
-			<input type="number" id="dig1"></input>
-			<input type="number" id="dig2"></input>
-			<button id="plus" class="btn btn-primary yellow">+</button>
-			<button id="minus">-</button>
-			<button id="equal" type="submit">=</button>
-		</form>
-		 <button type="button" class="btn btn-default btn-circle btn-xl black">1</button>-->
-		 
-		 <div>
-		 <div class=" all-center" id="main-container"  >	
-		 <div class="align-items-center" style="border-width: 5px;border-color: #CFB53B;border-style: solid; border-radius: 25px; position: relative;" id="sub1">
-		 <div style="padding: 5px 5px 5px 5px;">
-		 <table class="table table-borderless table-sm bgb" background='images/bun.jpeg' style=" align-items: center;" id="table1">
-			  <thead style="column-span: 4;">
-			    <h2 style="border-bottom: solid; border-width: 5px; font-size: xx-large; border-color: #CFB53B; color: white; text-align: right; font-family: 'Orbitron', sans-serif; font-size: 27px" id="display">0
-			    </h2>
-			  </thead>
-			  <tbody>
-			    <tr >
-			    	<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="font-size: 20px; padding-left: 10px;" id="AllClear">AC</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="clear">C</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="factorial">!</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="history">H</button></td>
+							<tr>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" id="pow">^</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" id="sqr">^2</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" id="cube">^3</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="sqrt">√</button>
+								</td>
+							</tr>
 
-			    </tr>
+							<tr>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="1">1</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="2">2</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="3">3</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px; " id="div">/</button>
+								</td>
+							</tr>
 
-			    <tr>
-			    	<td><button type="button" class="btn btn-default btn-circle btn-xl black" id="pow">^</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" id="sqr">^2</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" id="cube">^3</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="sqrt">S</button></td>
+							<tr>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="4">4</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="5">5</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="6">6</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px; " id="mul">x</button>
+								</td>
+							</tr>
+							<tr>
 
-			    </tr>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="7">7</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="8">8</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="9">9</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;  " id="sub">-</button>
+								</td>
+							</tr>
 
-			    <tr>
-			    	<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="1">1</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="2">2</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="3">3</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px; " id="div">/</button></td>
+							<tr>
 
-			    </tr>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" id=".">.</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black " style="padding-top: 6px; padding-left: 14px; color: #CFB53B;border-color: #CFB53B;" id="0">0</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;" id="equal">=</button>
+								</td>
+								<td>
+									<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;" id="add">+</button>
+								</td>
+							</tr>
 
-			    <tr>
-			    	<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="4">4</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="5">5</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="6">6</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px; " id="mul">x</button></td>
-
-			    </tr>
-			    <tr>
-			    
-			    	<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="7">7</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="8">8</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;  color: #CFB53B;border-color: #CFB53B;" id="9">9</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;  " id="sub">-</button></td>
-			    </tr>
-			    <tr>
-			    
-			     	<td><button type="button" class="btn btn-default btn-circle btn-xl black" id=".">.</button></td>
-			     	<td><button type="button" class="btn btn-default btn-circle btn-xl black " style="padding-top: 6px; padding-left: 14px; color: #CFB53B;border-color: #CFB53B;" id="0">0</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;" id="equal">=</button></td>
-					<td><button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 5px;" id="add">+</button></td>
-			    </tr>
-			  </tbody>
-		</table>
-				
-
-		</div>
+						</tbody>
+					</table>
 				</div>
-				<!--------- History block starts here ---------->
+			</div>
 
-				 <div class="align-items-center" style="border-width: 5px;border-color: #CFB53B;border-style: solid; border-radius: 25px; position: fixed; visibility: hidden;" id="sub2">
-		 <div>
-		 
+			<!--------- History block starts here ---------->
 
-		 		<button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="history2">H</button></td>
-
-				<table class="table table-striped table-light table-sm" id="histable">
-				  <thead>
-				    <tr>
-				      <th scope="col">#</th>
-				      <th scope="col">Digit 1</th>
-				      <th scope="col">Operator</th>
-				      <th scope="col">Digit 2</th>
-				      <th scope="answer">Answer</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				    <tr>
-				    	<td>1</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>2</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>3</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>4</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>5</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>6</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>7</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>8</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>9</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-
-				    <tr>
-				    	<td>10</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				    </tr>
-				  </tbody>
-				</table>		
-
+			<div class="align-items-center" style="border-width: 5px;border-color: #CFB53B;border-style: solid; border-radius: 25px; position: fixed; visibility: hidden;" id="sub2">
+				<button type="button" class="btn btn-default  btn-xl black" style="padding-top: 6px; padding-left: 14px; border-radius: 25px;" id="history2">C</button>
+				<div>
+				</td>
+					<table class="table table-striped table-light table-sm" id="histable">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Digit 1</th>
+							<th scope="col">Operator</th>
+							<th scope="col">Digit 2</th>
+							<th scope="answer">Answer</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
-				</div>
-
-
-		
-
 	</div>
-	</div>
+</div>
 
 
 
 
+<!--Bootstrap Jquery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<!-- Bootstrap Jquery over -->	
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- <button type="button" class="btn btn-default btn-circle btn-xl black" style="padding-top: 6px; padding-left: 14px;" id="history2">H</button></td> -->
-
-
-
-	<!--Bootstrap Jquery -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <!-- Bootstrap Jquery over -->	
 </body>
 
 </html>
