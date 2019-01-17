@@ -83,8 +83,18 @@ let display = document.getElementById('display');
 //Answer
 let answer;
 
-//let table2= document.getElementById('table2');
+// History to calculator button
+let table2his= document.getElementById('history2');
+table2his.addEventListener('click',history);
 
+//Counter that will be used to know if the person is in calculator or history mode
+let counter =0;
+ 
+ //array to store the operations
+
+let arr = []
+
+let histable = document.getElementById('histable');
 
 //Display of letters and their conditions
 function letteradd(e){
@@ -135,10 +145,12 @@ function equalsto(){
 			answer = digit1+digit2;
 			if(checklength(answer)){
 				display.innerHTML=answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else{
 				jumboalert();
@@ -150,10 +162,12 @@ function equalsto(){
 			answer = digit1-digit2;
 			if(checklength(answer)){
 				display.innerHTML=answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else{
 				jumboalert();
@@ -166,10 +180,12 @@ function equalsto(){
 			answer = digit1*digit2;
 			if(checklength(answer)){
 				display.innerHTML=answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else{
 				jumboalert();
@@ -181,11 +197,13 @@ function equalsto(){
 			answer = digit1/digit2;
 			if(checklength(answer)){
 				display.innerHTML=answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				console.log('hell');
 				display.innerHTML =answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else{
 				jumboalert();
@@ -197,10 +215,12 @@ function equalsto(){
 			answer = Math.pow(digit1,digit2);
 			if(checklength(answer)){
 				display.innerHTML=answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
+				doublehistoryappend(digit1,digit2,operator);
 			}
 			else{
 				jumboalert();
@@ -219,6 +239,7 @@ function square(e){
 	answer = Math.pow(digit1,2);
 	if(checklength(answer)){
 		display.innerHTML=answer;
+		singlehistoryappend(digit1,'Square');
 	}
 	else{
 		jumboalert();
@@ -231,10 +252,12 @@ function cuber(e){
 	answer = Math.pow(digit1,3);
 	if(checklength(answer)){
 		display.innerHTML = answer;
+		singlehistoryappend(digit1,'Cube');
 	}
 	else if(answer%1!==1){
 				answer = answer.toFixed(9);
 				display.innerHTML =answer;
+				singlehistoryappend(digit1,'Cube');
 			}
 	else{
 			jumboalert();	
@@ -247,6 +270,7 @@ function squareRoot(e){
 	answer = Math.pow(digit1,0.5);
 	if(answer.toString().length>9){
 		answer = answer.toFixed(9);
+		singlehistoryappend(digit1,'SquareRoot');
 	}
 	display.innerHTML=answer;
 }
@@ -255,9 +279,12 @@ function squareRoot(e){
 function facto(e){
 	digit1 = display.innerHTML;
 	let val=1;
-	if(digit1%1!==1){
+	if(typeof(digit1)=='Floating'){
 		alert("Floating value ain't no good for this operation, go with an integer!!");
 		return false;
+	}
+	else if(digit1<1){
+		alert("No value less than 1 please !")
 	}
     for (let i = 2; i <= digit1; i++){
         val*=i;
@@ -265,6 +292,7 @@ function facto(e){
     if(checklength(val)){
     	answer = val;
     	display.innerHTML = answer;
+    	singlehistoryappend(digit1,'Factorial');
     }
     else{
     	jumboalert();
@@ -288,16 +316,19 @@ function oneclear(e){
 
 //This function is used to check the history of last 10 operations
 function history(){
-
 	console.log('history here');
-	let contain = document.getElementById('main-container');
-	if(contain.style.justifyContent == 'left'){
-		contain.style.justifyContent = 'center';
+	let contain = document.getElementById('sub1'); //noraml Calculator
+	let contain2 = document.getElementById('sub2'); // History 
+	if(counter == 1){
+		contain.style.visibility = 'visible';
+		contain2.style.visibility = 'hidden';
+		counter =0;
 	}
 	else{
-		contain.style.justifyContent='center';
+		counter = 1;
 		contain.style.visibility = 'hidden';
-		document.getElementById('table2').style.visibility='visible';
+		showhistory();
+		contain2.style.visibility='visible';
 	}
 
 	}
@@ -318,9 +349,92 @@ function jumboalert(){
 }
 
 
+// Single operand history
 
+function singlehistoryappend(d1,op){
+	
+	arr.unshift({'dig1':d1,'op':op, 'dig2' :"" ,'answer':answer});
+
+	if(arr.length>10){
+		arr.pop();
+			}
+	
+	
+/*	if(histable.rows.length>10){
+		histable.rows.deleteRow(histable.rows.length);
+		let rc=10;
+		let lastrow = histable.insertRow(10);	
+		lastrow = histable.rows[9];
+		while(rc>2){
+			histable.rows[rc]=histable.rows[rc-1];
+		}
+		let newrow = histable.rows[1];
+			console.log(newrow);
+			newrow.cells[0].innerHTML=histable.rows.length-1;
+			newrow.cells[1].innerHTML= d1;
+			newrow.cells[2].innerHTML=op;
+			newrow.cells[3].innerHTML="";
+			newrow.cells[4].innerHTML=answer;
+	
+		}
+
+	else if(histable.rows.length == 1){
+			let newrow = histable.insertRow(1);
+			console.log(newrow);
+			newrow.insertCell(0).innerHTML=histable.rows.length-1;
+			newrow.insertCell(1).innerHTML= d1;
+			newrow.insertCell(2).innerHTML=op;
+			newrow.insertCell(3).innerHTML="";
+			newrow.insertCell(4).innerHTML=answer;
+	
+		}
+	else{
+		let newrow = histable.insertRow(histable.rows.length);
+							
+			
+			for(let rc=histable.rows.length;rc>=2;rc--){
+				histable.rows[rc]=histable.rows[rc-1];
+
+			}
+			newrow = histable.rows[1];
+			newrow.cells[0].innerHTML=histable.rows.length-1;
+			newrow.cells[1].innerHTML= d1;
+			newrow.cells[2].innerHTML=op;
+			newrow.cells[3].innerHTML="";
+			newrow.cells[4].innerHTML=answer;
+
+		}*/
+
+	}
 
 
 	
+
+	
+
+
+
+// Multiple operand history
+function doublehistoryappend(d1,d2,op){
+	arr.unshift({'dig1':d1,'op':op, 'dig2':d2,'answer':answer});
+
+	if(arr.length>10){
+		arr.pop();}					
+
+}
+
+	
+function showhistory(){
+	for(let i=0;i<arr.length;i++){
+		histable.rows[i+1].cells[1].innerHTML=arr[i]['dig1'];
+		histable.rows[i+1].cells[2].innerHTML=arr[i]['op'];
+		histable.rows[i+1].cells[3].innerHTML=arr[i]['dig2'];
+		histable.rows[i+1].cells[4].innerHTML=arr[i]['answer'];
+	}
+
+	
+}
+
+
 
 
