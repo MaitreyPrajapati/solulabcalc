@@ -295,8 +295,9 @@ function history(){
 		contain.style.justifyContent = 'center';
 	}
 	else{
-		contain.style.justifyContent='left';
-		
+		contain.style.justifyContent='center';
+		contain.style.visibility = 'hidden';
+		document.getElementById('table2').style.visibility='visible';
 	}
 
 	}

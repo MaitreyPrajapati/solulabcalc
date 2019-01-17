@@ -12,8 +12,7 @@
 }
 
 .black {
-	background-color: black;
-	color: #DBB340;
+		color: white;
 }
 
 .all-center{
@@ -35,4 +34,9 @@ button:hover{
 .bgb2{
 	background-color: black;
 	visibility: 'hidden'
+}
+
+.num{
+	color: #CFB53B	;
+	border-color: gold;
 }
