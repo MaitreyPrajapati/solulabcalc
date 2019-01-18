@@ -119,15 +119,20 @@ function letteradd(e){
 //deciding operator. Also if answer exists and another operator is clicked, answer becomes digit1 for the operation.
 function operations(e){
 	let op = e.path[0].id;
+	console.log(op);
+	console.log(display.innerHTML);
 	secondop = operator;
 	operator=op;
 	if(op == 'sub' && display.innerHTML==0){
 		display.innerHTML = '-';	
 		operator = secondop;
+		console.log('came here');
+		return true;
 	}
 	else if(answer){
 		digit1 =answer;
 		display.innerHTML=0;
+		return true;
 	}
 	else if(display.innerHTML!=0){
 		if(display.innerHTML.includes('-')){
@@ -136,10 +141,13 @@ function operations(e){
 		else{
 			digit1 = display.innerHTML;
 		}
-		display.innerHTML = 0;	
 	}
 	
-}
+			display.innerHTML = 0;	
+	
+	}
+	
+
 
 //Two operannd operations performed
 function equalsto(){
@@ -159,7 +167,7 @@ function equalsto(){
 	switch(operator){
 		case 'add':
 			answer = digit1+digit2;
-			if(answer.toString.includes('e')){
+			if(answer.toString().includes('e')){
 				jumboalert();
 			}
 			else if(checklength(answer)){
@@ -217,7 +225,7 @@ function equalsto(){
 
 		case 'div':
 			answer = digit1/digit2;
-			if(answer.toString.includes('e')){
+			if(answer.toString().includes('e')){
 				jumboalert();
 			}
 			else if(checklength(answer)){
@@ -349,9 +357,10 @@ function facto(e){
     }
     if(checklength(val)){
     	answer = val;
+    	singlehistoryappend(digit1,'Factorial');
     	digit1=answer;
     	display.innerHTML = answer;
-    	singlehistoryappend(digit1,'Factorial');
+    	
     }
     else{
     	jumboalert();
