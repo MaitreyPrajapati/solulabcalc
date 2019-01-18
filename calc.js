@@ -102,7 +102,9 @@ function letteradd(e){
 	console.log(typeof(display.innerHTML));	
 
 	//to check if the length is ok and it's not the first digit
-	if(display.innerHTML!=0 && (display.innerHTML).length<=9){
+	if(display.innerHTML.toString().includes('.') && btn_clicked=='.'){
+	}
+	else if(display.innerHTML!=0 && (display.innerHTML).length<=9){
 		display.innerHTML+=btn_clicked;
 	}
 	//if the length reaches 10 digits
@@ -136,7 +138,7 @@ function operations(e){
 	}
 	else if(display.innerHTML!=0){
 		if(display.innerHTML.includes('-')){
-			digit1=0+parseInt(display.innerHTML);
+			digit1=0+parseFloat(display.innerHTML);
 		}
 		else{
 			digit1 = display.innerHTML;
@@ -159,8 +161,8 @@ function equalsto(){
 	digit2 = display.innerHTML;
 	}
 	console.log("digit2: ",digit2);
-	digit1= parseInt(digit1);
-	digit2= parseInt(digit2);
+	digit1= parseFloat(digit1);
+	digit2= parseFloat(digit2);
 	console.log(operator);
 	console.log(typeof(digit1),typeof(digit2));
 
